@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Little Letterbox for You</title>
+<title>A Little Something for Saneeta</title>
 
 <style>
+
+/* ==============================
+   THEME: SOFT, PEACEFUL, ROMANTIC
+============================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -15,8 +21,13 @@
 
 body {
     font-family: Georgia, serif;
-    background: #fff7f3;
-    color: #654b52;
+    background: linear-gradient(
+        135deg,
+        #fff9f5,
+        #fcebf0,
+        #fff4ed
+    );
+    color: #725760;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -24,11 +35,11 @@ body {
 .page {
     display: none;
     min-height: 100vh;
-    padding: 30px 20px;
-    text-align: center;
+    padding: 35px 20px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .page.active {
@@ -36,65 +47,84 @@ body {
 }
 
 h1 {
+    color: #a56880;
     font-size: 2.5rem;
     font-weight: normal;
-    color: #a45f78;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 p {
-    line-height: 1.8;
+    line-height: 1.9;
 }
 
 button {
+    font-family: inherit;
     cursor: pointer;
     border: none;
-    font-family: inherit;
 }
 
+/* ==============================
+   BUTTONS
+============================== */
+
 .main-button {
-    background: #c77b91;
+    background: #c7839a;
     color: white;
     padding: 14px 28px;
     border-radius: 30px;
-    font-size: 16px;
-    margin-top: 25px;
+    font-size: 15px;
+    margin-top: 28px;
     transition: 0.3s;
+    box-shadow: 0 5px 15px #e8c6d1;
 }
 
 .main-button:hover {
-    background: #a45f78;
+    background: #a56880;
     transform: translateY(-3px);
 }
 
-/* Floating hearts */
+.back-button {
+    background: transparent;
+    color: #a56880;
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* ==============================
+   FLOATING HEARTS
+============================== */
 
 .heart {
     position: fixed;
     bottom: -30px;
-    color: #e9a9bb;
-    animation: floatUp 8s linear infinite;
+    color: #e8a9bc;
     pointer-events: none;
+    animation: floatUp 10s linear forwards;
     z-index: 0;
 }
 
 @keyframes floatUp {
+
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0);
         opacity: 0;
     }
 
     20% {
-        opacity: 0.7;
+        opacity: 0.6;
     }
 
     100% {
-        transform: translateY(-110vh) rotate(30deg);
+        transform: translateY(-110vh) rotate(25deg);
         opacity: 0;
     }
+
 }
 
-/* Welcome page */
+/* ==============================
+   OPENING PAGE
+============================== */
 
 .welcome-box {
     max-width: 600px;
@@ -102,61 +132,69 @@ button {
     z-index: 1;
 }
 
+.small-heading {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #b58a98;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-family: cursive;
+    font-size: 3.5rem;
+    color: #b36f88;
+    margin: 15px 0;
+}
+
 .subtitle {
     font-size: 18px;
     color: #92717b;
 }
 
-/* Envelope */
-
 .big-envelope {
-    font-size: 100px;
-    margin: 30px 0;
+    font-size: 95px;
+    margin: 25px 0;
     animation: gentle 3s ease-in-out infinite;
 }
 
 @keyframes gentle {
+
     0%, 100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
+
 }
 
-/* Letterbox */
-
-.letterbox-title {
-    margin-bottom: 10px;
-}
-
-.progress {
-    margin: 15px 0 30px;
-    color: #a17d88;
-}
+/* ==============================
+   LETTERBOX
+============================== */
 
 .envelope-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 850px;
+    max-width: 900px;
     width: 100%;
+    margin-top: 35px;
     position: relative;
     z-index: 1;
 }
 
 .envelope-card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.85);
     border: 1px solid #f1d7df;
-    border-radius: 18px;
+    border-radius: 20px;
     padding: 25px 15px;
     box-shadow: 0 5px 20px #e8cbd2;
     transition: 0.3s;
 }
 
 .envelope-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: 0 10px 25px #dfb9c5;
 }
 
@@ -166,38 +204,30 @@ button {
 }
 
 .envelope-card h3 {
-    font-size: 16px;
+    color: #a56880;
+    font-size: 17px;
     font-weight: normal;
-    color: #a45f78;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .envelope-card button {
     background: #f8e5eb;
     color: #9b5d73;
-    padding: 9px 18px;
+    padding: 10px 18px;
     border-radius: 20px;
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
-.final-card {
-    display: none;
-    background: #fce9ef;
-    border: 2px dashed #d99aaf;
-}
-
-.final-card.unlocked {
-    display: block;
-}
-
-/* Letter screen */
+/* ==============================
+   LETTER DESIGN
+============================== */
 
 .letter-paper {
     background: #fffdf9;
     max-width: 650px;
     width: 100%;
     padding: 45px 35px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 10px 35px #e8cbd2;
     border: 1px solid #f0dce1;
     position: relative;
@@ -206,22 +236,24 @@ button {
 }
 
 @keyframes appear {
+
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 .letter-paper h2 {
-    color: #a45f78;
-    font-weight: normal;
-    margin-bottom: 25px;
     font-size: 28px;
+    font-weight: normal;
+    color: #a56880;
+    margin-bottom: 25px;
 }
 
 .letter-text {
@@ -235,23 +267,17 @@ button {
 .signature {
     margin-top: 30px;
     text-align: right;
-    color: #a45f78;
+    color: #a56880;
     font-style: italic;
-    font-size: 20px;
+    font-size: 19px;
 }
 
-.back-button {
-    background: transparent;
-    color: #a45f78;
-    margin-top: 25px;
-    padding: 10px;
-    font-size: 16px;
-}
-
-/* Ending */
+/* ==============================
+   FINAL PAGE
+============================== */
 
 .ending-heart {
-    font-size: 80px;
+    font-size: 75px;
     margin: 20px;
     animation: gentle 3s infinite;
 }
@@ -262,20 +288,23 @@ footer {
     font-size: 13px;
 }
 
-/* Mobile design */
+/* ==============================
+   MOBILE RESPONSIVE
+============================== */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
+
     h1 {
         font-size: 2rem;
     }
 
-    .envelope-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    .name {
+        font-size: 3rem;
     }
 
-    .envelope-card {
-        padding: 20px 10px;
+    .envelope-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
     }
 
     .letter-paper {
@@ -285,121 +314,168 @@ footer {
     .letter-text {
         font-size: 16px;
     }
+
 }
 
-@media (max-width: 380px) {
-    .envelope-grid {
-        grid-template-columns: 1fr;
-    }
-}
 </style>
 </head>
 
 <body>
 
-<!-- Floating hearts -->
 <div id="hearts"></div>
 
-<!-- WELCOME PAGE -->
+
+<!-- ==============================
+     OPENING PAGE
+============================== -->
+
 <section id="welcome" class="page active">
 
     <div class="welcome-box">
 
-        <p class="subtitle">A little something, just for you</p>
+        <p class="small-heading">
+            A LITTLE SOMETHING, JUST FOR YOU
+        </p>
 
         <div class="big-envelope">💌</div>
 
-        <h1>A Little Letterbox</h1>
+        <h1 class="name">Saneeta</h1>
 
-        <p>
+        <p class="subtitle">
             Some feelings are too beautiful<br>
-            to be kept in just one letter.
+            to be left unspoken.
         </p>
 
-        <button class="main-button" onclick="showPage('letterbox')">
-            Open Your Little Letterbox
+        <br>
+
+        <p>
+            Some days deserve<br>
+            a little extra kindness.
+        </p>
+
+        <br>
+
+        <p>
+            So, I made you<br>
+            a little corner of the day<br>
+            where nothing is expected<br>
+            and everything is gentle.
+        </p>
+
+        <button class="main-button"
+        onclick="showPage('letterbox')">
+
+            A Little Something for You ♡
+
         </button>
 
-        <footer>Made with a little love ♡</footer>
+        <footer>
+            Just a little thought, wrapped in kindness.
+        </footer>
 
     </div>
 
 </section>
 
 
-<!-- LETTERBOX PAGE -->
+<!-- ==============================
+     LETTERBOX PAGE
+============================== -->
+
 <section id="letterbox" class="page">
 
-    <h1 class="letterbox-title">Your Little Letterbox</h1>
+    <div class="welcome-box">
 
-    <p>
-        Whenever you need a little something,<br>
-        there's a letter waiting for you.
-    </p>
+        <h1>Your Little Letterbox</h1>
 
-    <p class="progress" id="progress">
-        0 of 6 letters discovered
-    </p>
+        <p>
+            A few words for a day<br>
+            that could use a little softness.
+        </p>
+
+    </div>
 
     <div class="envelope-grid" id="envelopeGrid"></div>
 
-    <button class="back-button" onclick="showPage('welcome')">
+    <button class="back-button"
+    onclick="showPage('welcome')">
+
         ← Back to the beginning
+
     </button>
 
 </section>
 
 
-<!-- LETTER PAGE -->
+<!-- ==============================
+     LETTER PAGE
+============================== -->
+
 <section id="letterPage" class="page">
 
     <div class="letter-paper">
 
-        <h2 id="letterTitle">A Letter for You</h2>
+        <h2 id="letterTitle"></h2>
 
         <div class="letter-text" id="letterText"></div>
 
         <div class="signature">
-            With love, always ♡
+            Take care, Saneeta ♡
         </div>
 
     </div>
 
-    <button class="back-button" onclick="showPage('letterbox')">
+    <button class="back-button"
+    onclick="showPage('letterbox')">
+
         ← Back to your letters
+
     </button>
 
 </section>
 
 
-<!-- FINAL PAGE -->
+<!-- ==============================
+     ENDING PAGE
+============================== -->
+
 <section id="ending" class="page">
 
     <div class="welcome-box">
 
-        <div class="ending-heart">♡</div>
+        <div class="ending-heart">🌷</div>
 
-        <h1>One Last Little Thing</h1>
+        <h1>A Little Wish</h1>
 
         <p>
-            Some words are too special<br>
-            to be said just once.
+            I hope your pain eases soon,<br>
+            your smile returns gently,<br>
+            and tomorrow feels kinder.
         </p>
 
-        <p style="margin-top: 20px;">
-            I couldn't put everything I feel into one letter,
-            so I made you a little place where you can find
-            my words whenever you need them.
+        <br>
 
-            <br><br>
-
-            No matter how ordinary a day feels,
-            I hope this little corner reminds you
-            that you are someone truly special.
+        <p>
+            May the little things<br>
+            bring you unexpected happiness,<br>
+            and may your heart find<br>
+            a little more peace each day.
         </p>
 
-        <button class="main-button" onclick="showPage('welcome')">
+        <br>
+
+        <p>
+            Until then,<br>
+            take things slowly,<br>
+            rest well,<br>
+            and be gentle with yourself.
+        </p>
+
+        <button class="main-button"
+        onclick="showPage('welcome')">
+
             Read Again ♡
+
         </button>
 
     </div>
@@ -409,144 +485,128 @@ footer {
 
 <script>
 
-// ========================================
-// EDIT YOUR LETTERS HERE
-// ========================================
+/* ==============================
+   THREE PERSONAL LETTERS
+============================== */
 
 const letters = [
 
 {
-    title: "Open when you miss me",
-    message: `Hey you,
+    title: "For your not-so-good day",
 
-If you're reading this because you miss me,
-I wish I could be there to make you smile.
+    message: `Hey, Saneeta,
 
-Until then, let these little words remind you
-that even when we're apart,
-you still have a special place in my thoughts.
+I heard today hasn't been very kind to you.
 
-Distance can keep us in different places,
-but it doesn't make a moment less meaningful.
+And with that tooth pain,
+I can imagine how uncomfortable
+even the simplest things must feel.
 
-Take care of yourself, okay?
+So, here's a tiny reminder
+to slow down for a while.
 
-You are missed more than you know.`
+You don't have to make today productive.
+You don't have to force a smile.
+You don't have to pretend
+everything feels alright.
+
+Just let yourself rest.
+
+I hope the pain settles soon,
+the discomfort slowly disappears,
+and your smile returns
+without a second thought.
+
+If today feels a little gloomy,
+I hope these few words
+bring a little sunshine
+into your afternoon.
+
+Take care of yourself, okay?`
 },
 
 {
-    title: "Open when you're having a difficult day",
-    message: `Hey,
+    title: "For the little things",
 
-I know not every day feels easy.
+    message: `Dear Saneeta,
 
-Sometimes the world feels a little too loud,
-and everything seems to happen at once.
+You know what I find beautiful?
 
-On those days, please remember
-that you don't have to be perfect.
+It's not always the big moments.
 
-You don't have to have everything figured out.
+Sometimes it's a simple conversation
+that makes an ordinary day memorable.
 
-Take a breath.
-Give yourself some kindness.
+A little laughter.
+A random thought.
+A message that arrives
+at just the right moment.
 
-Tomorrow is another little beginning.
+Some people have a way
+of making the smallest things
+feel worth remembering.
 
-And I hope this letter makes today
-feel just a little softer.`
+And I think those little things
+deserve to be appreciated.
+
+So here's a small thank you
+for the conversations,
+the kindness,
+and the little moments
+that made these days
+a little brighter.
+
+Some memories don't need
+a grand beginning.
+
+They just need to be genuine.`
 },
 
 {
-    title: "Open when you need a smile",
-    message: `Hello, sunshine,
+    title: "Something I hope you remember",
 
-I hope you're smiling already.
+    message: `Saneeta,
 
-If not, consider this a tiny reminder
-that someone thinks your smile
-is one of the loveliest things.
+I hope you always remember
+to save a little kindness
+for yourself.
 
-You make ordinary conversations
-feel like memories worth keeping.
+You spend so much time
+thinking about the things
+that matter to you.
 
-So here's your little mission:
+I hope you also make time
+for your own happiness.
 
-Smile once for yourself today.
+For a peaceful evening.
+For a proper rest.
+For a smile that comes naturally.
 
-You deserve that happiness.`
-},
+You deserve days
+that don't feel so heavy.
 
-{
-    title: "Open when you feel tired",
-    message: `Hey,
+And when things get difficult,
+I hope you remember
+that you don't have to
+figure everything out at once.
 
-You don't always have to be strong.
+One day at a time
+is perfectly enough.
 
-It's okay to slow down.
-It's okay to rest.
-It's okay to have a quiet day.
+Wishing you brighter mornings,
+lighter thoughts,
+and many little reasons
+to smile.
 
-You are not measured by how much
-you accomplish in a single day.
-
-Please take care of yourself,
-the way you take care of the people you love.
-
-You deserve that same kindness too.`
-},
-
-{
-    title: "Open when you wonder how special you are",
-    message: `Dear you,
-
-Some people make life feel a little brighter
-without even trying.
-
-You are one of those people.
-
-It's not about grand gestures
-or perfect moments.
-
-It's the little things:
-the conversations,
-the laughter,
-the memories that stay.
-
-I hope you never forget
-how beautifully you matter.`
-},
-
-{
-    title: "Open when you want to know what you mean to me",
-    message: `If I had to explain it simply,
-
-You are someone
-whose presence makes a difference.
-
-Someone I can remember
-in the middle of an ordinary day
-and find a reason to smile.
-
-Someone whose little moments
-become memories I want to keep.
-
-And if these letters could say
-just one thing,
-
-It would be this:
-
-I'm really glad you exist.`
+Always take care.`
 }
 
 ];
 
 
-// ========================================
-// WEBSITE FUNCTIONS
-// ========================================
-
-let openedLetters = new Set();
+/* ==============================
+   PAGE NAVIGATION
+============================== */
 
 function showPage(pageId) {
 
@@ -559,6 +619,10 @@ function showPage(pageId) {
     window.scrollTo(0, 0);
 }
 
+
+/* ==============================
+   CREATE THE LETTERBOX
+============================== */
 
 function createLetterbox() {
 
@@ -574,7 +638,9 @@ function createLetterbox() {
 
         card.innerHTML = `
             <div class="envelope-icon">💌</div>
+
             <h3>${letter.title}</h3>
+
             <button onclick="openLetter(${index})">
                 Open Letter
             </button>
@@ -584,34 +650,34 @@ function createLetterbox() {
 
     });
 
-
-    // Final letter
+    // Final little wish
 
     const finalCard = document.createElement("div");
 
-    finalCard.className = "envelope-card final-card";
-    finalCard.id = "finalCard";
+    finalCard.className = "envelope-card";
 
     finalCard.innerHTML = `
-        <div class="envelope-icon">💖</div>
-        <h3>One Last Letter</h3>
-        <button onclick="openFinalLetter()">
-            Open Surprise
+        <div class="envelope-icon">🌷</div>
+
+        <h3>A Little Wish</h3>
+
+        <button onclick="showPage('ending')">
+            Open
         </button>
     `;
 
     grid.appendChild(finalCard);
 
-    updateProgress();
-
 }
 
+
+/* ==============================
+   OPEN A LETTER
+============================== */
 
 function openLetter(index) {
 
     const letter = letters[index];
-
-    openedLetters.add(index);
 
     document.getElementById("letterTitle").textContent =
         letter.title;
@@ -619,42 +685,14 @@ function openLetter(index) {
     document.getElementById("letterText").textContent =
         letter.message;
 
-    updateProgress();
-
     showPage("letterPage");
 
 }
 
 
-function updateProgress() {
-
-    document.getElementById("progress").textContent =
-        openedLetters.size + " of 6 letters discovered";
-
-    if (openedLetters.size === letters.length) {
-
-        document.getElementById("finalCard")
-            .classList.add("unlocked");
-
-    }
-
-}
-
-
-function openFinalLetter() {
-
-    if (openedLetters.size !== letters.length) {
-        return;
-    }
-
-    showPage("ending");
-
-}
-
-
-// ========================================
-// FLOATING HEARTS
-// ========================================
+/* ==============================
+   FLOATING HEARTS
+============================== */
 
 function createHeart() {
 
@@ -667,10 +705,10 @@ function createHeart() {
     heart.style.left = Math.random() * 100 + "vw";
 
     heart.style.fontSize =
-        (15 + Math.random() * 20) + "px";
+        (15 + Math.random() * 15) + "px";
 
     heart.style.animationDuration =
-        (6 + Math.random() * 6) + "s";
+        (7 + Math.random() * 5) + "s";
 
     document.body.appendChild(heart);
 
@@ -681,11 +719,13 @@ function createHeart() {
 }
 
 
-// Start website
+/* ==============================
+   START WEBSITE
+============================== */
 
 createLetterbox();
 
-setInterval(createHeart, 1200);
+setInterval(createHeart, 1800);
 
 </script>
 
